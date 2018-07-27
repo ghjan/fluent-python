@@ -1,7 +1,15 @@
 import sys
 
 MAX_BITS = len(format(sys.maxsize, 'b'))
-print('%s-bit Python build' % (MAX_BITS + 1))
+'''
+hash值的不同
+1 和1.0是相同的
+一些只有细微差别的数字，他们的哈希值差异很大
+'''
+'''
+Python基础-字符串格式化_百分号方式_format方式
+https://www.cnblogs.com/nulige/p/6115793.html
+'''
 
 
 def hash_diff(o1, o2):
@@ -16,6 +24,8 @@ def hash_diff(o1, o2):
 
 
 if __name__ == '__main__':
+    print('%s-bit Python build' % (MAX_BITS + 1))
+
     print(hash_diff(1, 1.0))
     print(hash_diff(1.0, 1.0001))
     print(hash_diff(1.0001, 1.0002))
