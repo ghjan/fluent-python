@@ -1,0 +1,15 @@
+>>> import numpy
+>>> floats = numpy.loadtxt('floats-10M-lines.txt')
+>>> floats[-3:]
+array([ 0.69560197,  0.16480493,  0.1388132 ])
+>>> floats *= 2
+>>> floats[-3:]
+array([ 1.39120394,  0.32960987,  0.2776264 ])
+>>> from time import perf_counter as pc
+>>> t0 = pc(); floats *= 3; pc() - t0
+0.0178327988833189
+>>> numpy.save('floats-10M', floats)
+>>> floats2 = numpy.load('floats-10M.npy', 'r+')
+>>> floats2 *= 6
+>>> floats2[-3:]
+memmap([ 25.04167083,   5.93297765,   4.99727514])

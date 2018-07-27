@@ -1,0 +1,10 @@
+
+*.bin
+*.gif
+*.zip
+*.rar
+*.jpg
+*.arr
+
+# PyCharm
+.idea/
