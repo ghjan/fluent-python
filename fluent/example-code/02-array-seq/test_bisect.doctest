@@ -7,3 +7,16 @@
 
 >>> [grade(score) for score in [33, 99, 77, 70, 89, 90, 100]]
 ['F', 'A', 'C', 'C', 'B', 'A', 'A']
+
+# it is better to search a list of precomputed keys to find the index of the record in question
+>>> data = [('red', 5), ('blue', 1), ('yellow', 8), ('black', 0)]
+>>> data.sort(key=lambda r: r[1])
+>>> keys = [r[1] for r in data]         # precomputed list of keys
+>>> data[bisect.bisect_left(keys, 0)]
+('black', 0)
+>>> data[bisect.bisect_left(keys, 1)]
+('blue', 1)
+>>> data[bisect.bisect_left(keys, 5)]
+('red', 5)
+>>> data[bisect.bisect_left(keys, 8)]
+('yellow', 8)
